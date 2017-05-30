@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @Project NUKEVIET 3.0
+ * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Copyright (C) 2010 VINADES.,JSC. All rights reserved
+ * @Createdate Thu, 15 Nov 2012 04:37:28 GMT
+ */
+
+if ( ! defined( 'NV_MAINFILE' ) )
+{
+    die( 'Stop!!!' );
+}
+
+$db_config['dbhost'] = "localhost";
+$db_config['dbport'] = "";
+$db_config['dbname'] = "entechco_db";
+$db_config['dbuname'] = "entechco_admin";
+$db_config['dbpass'] = "44fd4hHy6G";
+$db_config['prefix'] = "nv3";
+
+$global_config['sitekey'] = "ca36a89540b7fc7d24ddab6acfaa155d";// Do not change sitekey!
+
+?>
