@@ -1,0 +1,341 @@
+RewriteEngine on
+Options +FollowSymLinks
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -s
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^.*$ - [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^index.htm$ home/index.php [L]
+
+#dang ky pet
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^dang-ky-pet$ home/index.php?show=re_pet_profile [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-pet$ home/index.php?show=list_pet_profile [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^cap-nhat-pet-([0-9]*).htm$ home/index.php?show=ed_pet_profile&id_pet=$1&edit=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^xoa-pet-([0-9]*).htm$ home/index.php?show=list_pet_profile&id_pet=$1&del=1 [L]
+
+#khuyen mai
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^khuyen-mai/([a-zA-Z0-9-]*)/$ home/index.php?show=info_detail&news_key=$1&cate=khuyenmai [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*)/$ home/index.php?show=info_detail_libary&news_key=$1&cate=thuvien [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-gian/([a-zA-Z0-9-]*)/$ home/index.php?show=info_detail&news_key=$1&cate=thugian [L]
+
+#Rewrite product
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm$ home/index.php?show=product&category_key=$1&page=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm/page=([0-9]*)$ home/index.php?show=product&category_key=$1&page=$2 [L]
+
+#show num product
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm/([0-9]*)$ home/index.php?show=product&category_key=$1&page=1&num=$2 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm/([0-9]*)/page=([0-9]*)$ home/index.php?show=product&category_key=$1&num=$2&page=$3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&num=$3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/([0-9]*)/page=([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&num=$3&page=$4 [L]
+
+#show orderby product
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm/order/([0-9]*)$ home/index.php?show=product&category_key=$1&page=1&order_by=$2 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*).htm/order/([0-9]*)/page=([0-9]*)$ home/index.php?show=product&category_key=$1&order_by=$2&page=$3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/order/([a-zA-Z0-9-]*)/([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&order_by=$3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/order/([a-zA-Z0-9-]*)/([0-9]*)/page=([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&order_by=$3&page=$4 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/order/([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&order_by=$3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/page=([0-9]*)$ home/index.php?show=product&category_key=$1&category_sub_key=$2&page=$3 [L]
+
+#search
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tim-kiem/page=([0-9]*)$ home/index.php?show=search&page=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tim-kiem/tat-ca-san-pham.htmls/page=([0-9]*)$ home/index.php?show=search_all_product&page=$1 [L]
+#RewriteRule ^tim-kiem/tat-ca-san-pham.htmls/page=([0-9]*)$ home/index.php?show=searchallproduct&page=$2 [L]
+#RewriteRule ^tim-kiem/search_key=([a-zA-Z0-9-]*)/page=([0-9]*)$ home/index.php?show=search&page=$2&search_key=$1 [L]
+#RewriteRule ^tim-kiem/search_key=([a-zA-Z0-9-]*)/product_page=([0-9]*)&news_page=([0-9]*)$ home/index.php?show=search&product_page=$2&news_page=$3&search_key=$1 [L]
+#RewriteRule ^tim-kiem/key=(.*)/product_page=([0-9]*)&news_page=([0-9]*)&entertainment_page=([0-9]*)&tabID=([0-9]*)$ home/index.php?show=search&product_page=$2&news_page=$3&entertainment_page=$4&tabID=$5&search_box=$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^dang-ky$ home/index.php?show=register [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^process-register$ home/index.php?show=process-register [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^dang-nhap$ home/index.php?show=login [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^facebook-login$ home/index.php?show=facebook_login [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gmail-login$ home/index.php?show=gmail_login [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^process-login$ home/index.php?show=process_login [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^logout$ home/index.php?show=process_login&out=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thong-tin-tai-khoan$ home/index.php?show=user_info [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^doi-mat-khau$ home/index.php?show=change_pass [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^cap-nhat-thong-tin$ home/index.php?show=user_info&type=update [L]
+
+#show product detail
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*).htm$ home/index.php?show=product_detail&category_key=$1&product_key=$2 [L]
+
+#cart
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang$ home/index.php?show=cart [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang/([a-zA-Z0-9-]*)$home/index.php?show=cart&product_key=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang/([a-zA-Z0-9-]*)/add$ home/index.php?show=cart&product_key=$1&add=add [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang/([a-zA-Z0-9-]*)/edit$ home/index.php?show=cart&product_key=$1&edit=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang/([a-zA-Z0-9-]*)/del$ home/index.php?show=cart&product_key=$1&del=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang-empty$ home/index.php?show=cart&em=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gio-hang.html/edit/([0-9]*)$ home/index.php?show=cart&order_id=$1&update=1 [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^ket-thuc-mua-hang/([a-zA-Z0-9-]*).html/$ home/index.php?show=cart-finish&code_coupon=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^ket-thuc-mua-hang$ home/index.php?show=cart-finish [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^lich-su-mua-hang$ home/index.php?show=historyOrder [L]
+
+#gioi-thieu flag=1
+#nhan-nuoi-pet flag=2
+#thu-vien flag=3
+#kuyen-mai flag=4
+#thu-gian flag=5
+#lien-he flag=6
+#tin tuc flag=7
+#cau hoi thuong gap flag=8
+#huong dan mua hang flag=9
+#cach-thuc-thanh-toan flag=10
+#dich-vu-van-chuyen flag=11
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien$ home/index.php?show=info&flag=3&page=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/page=([0-9]*)$ home/index.php?show=info&flag=3&page=$1 [L]
+
+#Choose thu vien
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*).html$ home/index.php?show=info&flag=3&page=1&choose=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*).html/page=([0-9]*)$ home/index.php?show=info&flag=3&choose=$1&page=$2 [L]
+
+#Choose danh muc thu vien
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)$ home/index.php?show=info&flag=3&choose1=$1&choose2=$2 [L]
+
+#Xu ly Page
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/page=([0-9]*)$ home/index.php?show=info&flag=3&choose1=$1&choose2=$2&page=$3 [L]
+
+#Choose cho muc lon
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*).htmls$ home/index.php?show=info&flag=3&choose3=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-vien/([a-zA-Z0-9-]*).htmls/page=([0-9]*)$ home/index.php?show=info&flag=3&choose3=$1&page=$2 [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^khuyen-mai$ home/index.php?show=info&flag=4&page=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^khuyen-mai/page=([0-9]*)$ home/index.php?show=info&flag=4&page=$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-gian$ home/index.php?show=info&flag=5 [L]
+#RewriteRule ^lien-he$ home/index.php?show=info&flag=6 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tin-tuc$ home/index.php?show=info&flag=7 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^cau-hoi-thuong-gap$ home/index.php?show=info&flag=8 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^huong-dan-mua-hang$ home/index.php?show=info&flag=9 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^cach-thuc-thanh-toan$ home/index.php?show=info&flag=10 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^dich-vu-van-chuyen$ home/index.php?show=info&flag=11 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^lien-he$ home/index.php?show=contact [L]
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-phong.htmls$ home/index.php?show=allproduct&type=allproduct [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham.htmls/page=([0-9]*)$ home/index.php?show=allproduct&type=allproduct&page=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham-moi.htmls$ home/index.php?show=allproduct&type=new [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham-ban-chay.htmls$ home/index.php?show=allproduct&type=best [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham-khuyen-mai.htmls$ home/index.php?show=allproduct&type=promo [L]
+
+#tours
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-tours.htmls$ home/index.php?show=alltours&type=alltours [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-tours.htmls/page=([0-9]*)$ home/index.php?show=alltours&type=allproduct&page=$1 [L]
+
+#show tours detail
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*).htmls$ home/index.php?show=tours_detail&category_key=$1&product_key=$2 [L]
+
+
+
+
+
+
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^quen-mat-khau$ home/index.php?show=forgot_pass [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^quen-mat-khau.html/([a-zA-Z0-9-]*)$ home/index.php?show=forgot_pass&ser_key=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^reset-update.chm$ home/index.php?show=resetUpdate [L]
+
+#san-pham-ua-thich flg = 1
+#danh-sach-don-hang flg = 2
+#pet-profile flg =3
+#danh-sach-dia-chi flg = 4
+#san-pham-danh-gia flg = 5
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham-ua-thich$ home/index.php?show=user_infomation&flg=1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-don-hang$ home/index.php?show=user_infomation&flg=2 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^danh-sach-don-hang.d/([0-9]*)$ home/index.php?show=user_infomation&flg=2&id_order=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^thu-cung-cua-toi$ home/index.php?show=user_infomation&flg=3 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^so-dia-chi$ home/index.php?show=user_infomation&flg=4 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^them-dia-chi.chm$ home/index.php?show=user_infomation&flg=4&up=3[L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^sua-dia-chi.chm/([0-9]*)$ home/index.php?show=user_infomation&flg=4&up=1&id_contact=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^xoa-dia-chi-([0-9]*).chm$ home/index.php?show=user_infomation&flg=4&up=2&id_contact=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^san-pham-danh-gia$ home/index.php?show=user_infomation&flg=5 [L]
+
+#tro giup
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tro-giup$ home/index.php?show=help [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tro-giup/([a-zA-Z0-9-]*).html$ home/index.php?show=help&news_key=$1 [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tro-giup/([a-zA-Z0-9-]*).html/$ home/index.php?show=help&news_key=$1 [L]
+#gioi thieu
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gioi-thieu$ home/index.php?show=introduce [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^gioi-thieu/([a-zA-Z0-9-]*).html$ home/index.php?show=introduce&news_key=$1 [L]
+
+#nhan nuoi pet
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^nhan-nuoi-pet$ home/index.php?show=adoption [L]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^nhan-nuoi-pet/([a-zA-Z0-9-]*).html$ home/index.php?show=adoption&news_key=$1 [L]
