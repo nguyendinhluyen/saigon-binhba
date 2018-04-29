@@ -316,7 +316,7 @@
                                margin-left: auto;
                                margin-right: auto;                                                           
                                color: #999999">
-                    <div style="background-color: #f1fdfb; padding-top: 10px; padding-bottom: 10px">
+                    <!--<div style="background-color: #f1fdfb; padding-top: 10px; padding-bottom: 10px">
                         <table style="text-align: left;">
                             <tr>                                
                                 <td>
@@ -335,7 +335,7 @@
                         data-href="{linkSf}{news_key}"
                         data-numposts="5"
                         data-width ="705">
-                    </div>
+                    </div>-->
                 </div>
             </div><!-- end product_main -->
             <br/>

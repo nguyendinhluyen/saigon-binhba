@@ -411,13 +411,13 @@
                                 </td>							                                
                             </tr>						
                         </table>
-                        <br/>-->
+                        <br/>
                         <div class="fb-comments"
                                     data-href="{linkSf}{link_san-pham}"
                                     data-numposts="3"
                                     data-width ="974px"
                              style="margin-left: -7px">
-                        </div>';
+                        </div>-->';
     $category_key = $_GET['category_key'];
     $display_product_detail = "block";
     $display_product_detail_tacdung = "block";
